@@ -49,7 +49,7 @@ export default function RevealPage() {
             className="w-full h-full relative preserve-3d cursor-pointer"
             animate={{ rotateY: isFlipped ? 180 : 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            onClick={!isFlipped ? handleReveal : undefined}
+            onClick={!isFlipped ? handleReveal : handleHideAndPass}
           >
             
             {/* Front of Card (Hidden State) */}
