@@ -191,9 +191,16 @@ export default function SetupPage() {
                 return (
                   <div key={role.id} className="flex items-center justify-between p-3 rounded-lg glass">
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xl ${role.color}`}>
-                        {role.icon}
-                      </div>
+                      {role.image ? (
+                        <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-neutral-700">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={role.image} alt={role.name} className="w-full h-full object-cover" />
+                        </div>
+                      ) : (
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0 ${role.color}`}>
+                          {role.icon}
+                        </div>
+                      )}
                       <div>
                         <div className="font-bold text-sm flex items-center gap-2">
                           {role.name}

@@ -11,6 +11,7 @@ export interface Role {
   priority?: number;
   icon: string;
   color: string;
+  image?: string;
 }
 
 export interface Player {

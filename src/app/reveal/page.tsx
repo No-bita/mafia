@@ -62,15 +62,22 @@ export default function RevealPage() {
 
             {/* Back of Card (Revealed State) */}
             <div 
-              className="absolute inset-0 backface-hidden rounded-2xl flex flex-col items-center justify-center p-6 text-center border-2 rotate-y-180"
+              className="absolute inset-0 backface-hidden rounded-2xl flex flex-col items-center justify-center p-6 text-center border-2 rotate-y-180 overflow-hidden"
               style={{ 
                 background: `linear-gradient(to bottom right, var(--color-bg-primary), ${role?.color === 'bg-accent-red' ? 'rgba(220,38,38,0.2)' : 'rgba(59,130,246,0.2)'})`,
                 borderColor: role?.color === 'bg-accent-red' ? 'rgba(220,38,38,0.5)' : 'rgba(59,130,246,0.5)'
               }}
             >
-              <div className={`w-24 h-24 rounded-full flex items-center justify-center text-4xl mb-6 shadow-xl ${role?.color}`}>
-                {role?.icon}
-              </div>
+              {role?.image ? (
+                <div className="w-32 h-32 mb-4 relative rounded-full overflow-hidden shadow-2xl border-4" style={{ borderColor: role.color === 'bg-accent-red' ? 'rgba(220,38,38,0.5)' : 'rgba(59,130,246,0.5)'}}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={role.image} alt={role.name} className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <div className={`w-24 h-24 rounded-full flex items-center justify-center text-4xl mb-6 shadow-xl ${role?.color}`}>
+                  {role?.icon}
+                </div>
+              )}
               
               <p className="text-sm tracking-widest uppercase text-neutral-400 mb-1">Your Role is</p>
               <h3 className="text-4xl font-serif font-bold text-white mb-6">

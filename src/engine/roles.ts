@@ -10,6 +10,7 @@ export const ROLES: Record<string, Role> = {
     nightAction: false,
     icon: '🧑‍🌾',
     color: 'bg-accent-blue',
+    image: '/villager.png',
   },
   mafia: {
     id: 'mafia',
@@ -21,6 +22,7 @@ export const ROLES: Record<string, Role> = {
     priority: 1,
     icon: '🔪',
     color: 'bg-accent-red',
+    image: '/mafia.png',
   },
   doctor: {
     id: 'doctor',
@@ -32,6 +34,7 @@ export const ROLES: Record<string, Role> = {
     priority: 2,
     icon: '💉',
     color: 'bg-emerald-600',
+    image: '/doc.png',
   },
   detective: {
     id: 'detective',
@@ -43,5 +46,6 @@ export const ROLES: Record<string, Role> = {
     priority: 3,
     icon: '🔍',
     color: 'bg-indigo-600',
+    image: '/detect.png',
   }
 };
