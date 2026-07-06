@@ -94,26 +94,24 @@ export default function RevealPage() {
                   {role?.name}
                 </h3>
                 
-                <p className="text-neutral-200 text-sm leading-relaxed mb-2 drop-shadow-md">
-                  {role?.description}
-                </p>
-                <p className="text-xs text-neutral-400 italic drop-shadow-md">
-                  {role?.abilityDescription}
-                </p>
               </div>
             </div>
 
           </motion.div>
         </div>
 
-        <div className="h-16 w-full">
+        <div className="min-h-[100px] w-full flex flex-col justify-end">
           <AnimatePresence>
             {isFlipped && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
+                className="flex flex-col gap-4 text-center"
               >
+                <p className="text-sm text-neutral-400 italic px-4">
+                  {role?.abilityDescription}
+                </p>
                 <Button 
                   onClick={handleHideAndPass} 
                   className="w-full h-14 text-lg font-bold bg-white text-black"
