@@ -1,5 +1,5 @@
 export type Team = 'town' | 'mafia';
-export type Phase = 'setup' | 'reveal' | 'night' | 'day-result' | 'day-discussion' | 'voting' | 'game-over';
+export type Phase = 'setup' | 'reveal' | 'assigned';
 
 export interface Role {
   id: string;
@@ -23,22 +23,4 @@ export interface Player {
 
 export interface RoleConfig {
   [roleId: string]: number;
-}
-
-export interface NightActions {
-  mafiaKillTargetId: string | null;
-  doctorSaveTargetId: string | null;
-  detectiveInvestigateTargetId: string | null;
-}
-
-export interface NightResult {
-  killedPlayerId: string | null;
-  investigatedPlayer: { id: string; team: Team } | null;
-}
-
-export interface GameEvent {
-  id: string;
-  type: 'eliminated' | 'saved' | 'investigated' | 'game-over';
-  text: string;
-  timestamp: number;
 }

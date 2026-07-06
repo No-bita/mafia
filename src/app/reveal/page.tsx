@@ -13,9 +13,9 @@ export default function RevealPage() {
   const [isFlipped, setIsFlipped] = useState(false);
   
   useEffect(() => {
-    // If we've advanced past reveal, go to game
-    if (phase === 'night') {
-      router.push('/game');
+    // If we've advanced past reveal, go to the final assigned screen
+    if (phase === 'assigned') {
+      router.push('/assigned');
     }
   }, [phase, router]);
 
