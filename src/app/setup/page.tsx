@@ -20,7 +20,7 @@ export default function SetupPage() {
 
   // Step 1: Handle player count change
   const handleCountChange = (delta: number) => {
-    const newCount = Math.max(5, targetCount + delta); // Min 5 players
+    const newCount = Math.max(2, targetCount + delta); // Min 2 players
     setTargetCount(newCount);
     
     // Adjust temp names array
@@ -97,13 +97,17 @@ export default function SetupPage() {
           >
             <div className="text-center space-y-2">
               <h2 className="text-3xl font-serif text-white">How many players?</h2>
-              <p className="text-neutral-400">Minimum 5 players required.</p>
+              {targetCount < 5 ? (
+                <p className="text-accent-gold">5+ players recommended for best experience.</p>
+              ) : (
+                <p className="text-neutral-400">Perfect size for a great game.</p>
+              )}
             </div>
 
             <div className="flex items-center gap-6">
               <Button 
                 onClick={() => handleCountChange(-1)}
-                disabled={targetCount <= 5}
+                disabled={targetCount <= 2}
                 className="w-16 h-16 rounded-full text-3xl bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-30"
               >
                 -

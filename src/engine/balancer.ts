@@ -1,9 +1,9 @@
 import { RoleConfig } from '../types';
 
 export function balanceRoles(playerCount: number): RoleConfig {
-  if (playerCount < 5) {
-    return { villager: playerCount }; // Invalid game really, but fallback
-  }
+  if (playerCount <= 2) return { mafia: 1, villager: Math.max(0, playerCount - 1) };
+  if (playerCount === 3) return { mafia: 1, villager: 2 };
+  if (playerCount === 4) return { mafia: 1, doctor: 1, villager: 2 };
 
   if (playerCount === 5) return { mafia: 1, doctor: 1, villager: 3 };
   if (playerCount === 6) return { mafia: 1, doctor: 1, detective: 1, villager: 3 };
