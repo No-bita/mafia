@@ -73,8 +73,6 @@ export default function RevealPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={role.image} alt={role.name} className="w-full h-full object-cover" />
                   </div>
-                  {/* Dark gradient overlay to ensure text is readable at the bottom */}
-                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/70 to-transparent" />
                 </>
               ) : (
                 <div className="absolute inset-0 z-0" style={{ 
@@ -84,16 +82,17 @@ export default function RevealPage() {
               
               <div className="relative z-20 flex flex-col items-center w-full">
                 {!role?.image && (
-                  <div className={`w-24 h-24 rounded-full flex items-center justify-center text-4xl mb-6 shadow-xl z-20 ${role?.color}`}>
-                    {role?.icon}
-                  </div>
+                  <>
+                    <div className={`w-24 h-24 rounded-full flex items-center justify-center text-4xl mb-6 shadow-xl z-20 ${role?.color}`}>
+                      {role?.icon}
+                    </div>
+                    
+                    <p className="text-sm tracking-widest uppercase text-neutral-300 mb-1 drop-shadow-md">Your Role is</p>
+                    <h3 className="text-4xl font-serif font-bold text-white mb-4 drop-shadow-lg">
+                      {role?.name}
+                    </h3>
+                  </>
                 )}
-                
-                <p className="text-sm tracking-widest uppercase text-neutral-300 mb-1 drop-shadow-md">Your Role is</p>
-                <h3 className="text-4xl font-serif font-bold text-white mb-4 drop-shadow-lg">
-                  {role?.name}
-                </h3>
-                
               </div>
             </div>
 
